@@ -20,8 +20,8 @@ output_file_std = os.path.join(current_directory, "..", "dataset", "output", "NP
 
 # 파일경로 직접 설정
 input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
-output_file_nor = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output_nor.xlsx"
-output_file_std = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output_std.xlsx"
+output_file_nor = "/dataset/output/NPASS_NPT204_RDKit_activity_output_nor.xlsx"
+output_file_std = "/dataset/output/NPASS_NPT204_RDKit_activity_output_std.xlsx"
 
 #파일을 dataframe 형태로 불러오기
 df = pd.read_excel(input_file)
