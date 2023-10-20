@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 # Author: Myungwon Seo
-# Date: 2020-02-05
+# Date: 2023-10-20
 # E-mail: mwseo@krict.re.kr; seomyungwon@gmail.com
 
 import itertools
+import os
 from lecture_3.NC_MFP_Algorithm.Preprocessing_step import Preprocessing
 from lecture_3.NC_MFP_Algorithm.Scaffold_matching_step import Scaffold_Matching
 from lecture_3.NC_MFP_Algorithm.Fragment_list_generation_step import Fragment_List_Generation
@@ -11,13 +12,10 @@ from lecture_3.NC_MFP_Algorithm.SFCP_assigning_step import SFCP_Assigning
 from lecture_3.NC_MFP_Algorithm.Fragment_identifying_step import Fragment_identifying
 from lecture_3.NC_MFP_Algorithm.Fingerprint_representation_step import Fingerprint_representation
 
-# coding: utf-8
-# Input: Smarts of query compound (.txt)
-# Output: NC-MFP bit string (.txt)
 
-# NC-MFP calculation algorithm #
-# An Example set for the NC-MFP calculation: 20 query compounds in NPASS DB
-# ('Data/QueryMols_NC_MFP_Algorithm_TestSet.txt')
+# 파일경로 설정
+current_directory = os.path.dirname(__file__)
+input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
 
 # Define classes
 Step_1 = Preprocessing()
@@ -27,31 +25,33 @@ Step_4 = SFCP_Assigning()
 Step_5 = Fragment_identifying()
 Step_6 = Fingerprint_representation()
 
-input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\#NPASS_NPT204_Activity_input.xlsx"
-output_file = "/lecture_4/RDKit_activity_output.xlsx"
-
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
 
 
 # Read Query Mols data
-Query_FilePath = ('Data/QueryMols_NC_MFP_Algorithm_TestSet.txt')
+#Query_FilePath = ('Data/QueryMols_NC_MFP_Algorithm_TestSet.txt')
 #Query_FilePath = 'C:\\Users\\Seomyungwon\\NC-MFP\\Data\\QueryMols_NC_MFP_Algorithm_TestSet.txt'
+Query_FilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
 
 # Read All Scaffolds data
-All_Scaffold_FilePath = ('Data/All_Optimized_Scaffold_List.txt')
+#All_Scaffold_FilePath = ('Data/All_Optimized_Scaffold_List.txt')
 #All_Scaffold_FilePath = 'C:\\Users\\Seomyungwon\\NC-MFP\\Data\\All_Optimized_Scaffold_List.txt'
+All_Scaffold_FilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\lecture_3\\NC_MFP_Algorithm\\Data\\All_Optimized_Scaffold_List.txt"
 
 # Write NC-MFP file
-OutputFilePath = ('FilePath/OutPutFileName.txt')
-OutputFileName = ('OutputFile name.txt')
-#OutputFilePath = 'C:\\Users\\Seomyungwon\\Desktop\\Python_Test\\'
-#OutputFileName = 'Test_Output.txt'
+#OutputFilePath = ('FilePath/OutPutFileName.txt')
+#OutputFileName = ('OutputFile name.txt')
+OutputFilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\"
+OutputFileName = "NC-MFP_output.xlsx"
+
 
 ## NC-MFP algorithm steps ##
 
 # [1] Preprocessing (Mol set) #
 # Hydrogens of query compounds were added previously.
 # Molecular weight (MW) and Molecular formula (MF) were calculated previously.
-qMols_Smarts = Step_1.get_Query_Mols_Smarts(Query_FilePath)
+qMols_Smarts = Step_1.get_Query_Mols_Smarts_new(Query_FilePath)
 
 # All fragments generation #
 Final_all_Fragment_List = []
