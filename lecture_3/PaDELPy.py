@@ -1,7 +1,9 @@
-from rdkit.Chem import Descriptors
-from rdkit import Chem
+# -*- coding: utf-8 -*-
+# Author: Myungwon Seo
+# Date: 2023-10-20
+# E-mail: mwseo@krict.re.kr; seomyungwon@gmail.com
+
 import pandas as pd
-import numpy as np
 import os
 from padelpy import from_smiles
 
@@ -33,15 +35,14 @@ mol_list = []
 # calculate molecular descriptors
 desc = from_smiles(smiles_list, fingerprints=False, descriptors=True)
 
-
 # (descriptor) dataframe으로 type 변환
-temp_df = pd.DataFrame()
 merge_df = pd.DataFrame()
 for bi in range(0, len(desc)):
-
+    temp_df = pd.DataFrame()
     temp_df = pd.DataFrame([desc[bi]])
     merge_df = pd.concat([temp_df, merge_df])
-    print(merge_df)
+
+print(merge_df)
 
 #빈값을 0으로 전환
 merge_df = merge_df.replace('',0)
@@ -52,26 +53,24 @@ desc_fp = from_smiles(smiles_list, fingerprints=True, descriptors=False)
 desc_fp = pd.Series(desc_fp)
 
 # (molecular fingerprint) dataframe으로 type 변환
-temp_fp_df = pd.DataFrame()
 merge_fp_df = pd.DataFrame()
 for ci in range(0, len(desc_fp)):
-
+    temp_fp_df = pd.DataFrame()
     temp_fp_df = pd.DataFrame([desc_fp[ci]])
     merge_fp_df = pd.concat([temp_fp_df, merge_fp_df])
-    print(merge_fp_df)
+
+print(merge_fp_df)
 
 #빈값을 0으로 전환
 merge_fp_df = merge_fp_df.replace('',0)
 
 # insert info as new column
-merge_df.insert(0, "CAS", cas_list)
-merge_df.insert(1, "PubChem_CID", cid_list)
+merge_df.insert(0, "CAS", list(cas_list))
+merge_df.insert(1, "PubChem_CID", list(cid_list))
 
-merge_fp_df.insert(0, "CAS", cas_list)
-merge_fp_df.insert(1, "PubChem_CID", cid_list)
-
-
+merge_fp_df.insert(0, "CAS", list(cas_list))
+merge_fp_df.insert(1, "PubChem_CID", list(cid_list))
 
 #save descriptors
 merge_df.to_excel(output_file_1, index = False)
-merge_fp_df.to_excel(output_file_1, index = False)
+merge_fp_df.to_excel(output_file_2, index = False)

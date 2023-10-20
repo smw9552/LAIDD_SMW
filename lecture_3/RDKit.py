@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# Author: Myungwon Seo
+# Date: 2023-10-20
+# E-mail: mwseo@krict.re.kr; seomyungwon@gmail.com
+
 from rdkit.Chem import Descriptors
 from rdkit import Chem
 import pandas as pd

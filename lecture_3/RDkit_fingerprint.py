@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
+# Author: Myungwon Seo
+# Date: 2023-10-20
+# E-mail: mwseo@krict.re.kr; seomyungwon@gmail.com
+
 import pandas as pd
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import numpy as np
 import os
 from rdkit import Chem
 from rdkit.Chem import AllChem
 from rdkit.Chem import MACCSkeys
-
 
 #FP list: MACCS, RDKit, Morgan/Circular
 

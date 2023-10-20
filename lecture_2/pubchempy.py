@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+# Author: Myungwon Seo
+# Date: 2023-10-20
+# E-mail: mwseo@krict.re.kr; seomyungwon@gmail.com
+
 import os
 import pandas as pd
 import pubchempy as pcp
-
 
 # 파일경로 설정
 current_directory = os.path.dirname(__file__)
