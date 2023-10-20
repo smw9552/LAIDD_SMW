@@ -33,6 +33,8 @@ mol_list = []
 for ai in range(0, len(smiles_list)):
     mol_list.append(Chem.MolFromSmiles(smiles_list[ai]))
 
+
+
 remove_processing = False
 replace_precessing = True # 1,613개의 descriptor 수를 고정하기 위한 방법
 
