@@ -30,8 +30,8 @@ rdkit_desc_list = ["BalabanJ", "BertzCT", "Ipc", "HallKierAlpha", "Kappa1", "Kap
 #input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
 #output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
 
-input_file = "/testing/NPASS_NPT204_Activity_mod.xlsx"
-output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_activity_output.xlsx"
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\#NPASS_NPT204_Activity_input.xlsx"
+output_file = "/lecture_4/RDKit_activity_output.xlsx"
 
 
 #파일을 dataframe 형태로 불러오기
