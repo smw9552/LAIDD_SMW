@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+# Author: Myungwon Seo
+# Date: 2023-10-20
+# E-mail: mwseo@krict.re.kr; seomyungwon@gmail.com
+
+
 from rdkit import Chem
 from rdkit.Chem import AllChem
 import itertools

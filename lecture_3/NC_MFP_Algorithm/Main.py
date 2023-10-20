@@ -25,10 +25,6 @@ Step_4 = SFCP_Assigning()
 Step_5 = Fragment_identifying()
 Step_6 = Fingerprint_representation()
 
-input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
-output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
-
-
 # Read Query Mols data
 #Query_FilePath = ('Data/QueryMols_NC_MFP_Algorithm_TestSet.txt')
 #Query_FilePath = 'C:\\Users\\Seomyungwon\\NC-MFP\\Data\\QueryMols_NC_MFP_Algorithm_TestSet.txt'
@@ -43,7 +39,7 @@ All_Scaffold_FilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\lecture_3
 #OutputFilePath = ('FilePath/OutPutFileName.txt')
 #OutputFileName = ('OutputFile name.txt')
 OutputFilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\"
-OutputFileName = "NC-MFP_output.xlsx"
+OutputFileName = "NC-MFP_output.txt"
 
 
 ## NC-MFP algorithm steps ##
