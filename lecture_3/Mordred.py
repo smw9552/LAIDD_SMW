@@ -1,7 +1,5 @@
-from rdkit.Chem import Descriptors
 from rdkit import Chem
 import pandas as pd
-import numpy as np
 import os
 from mordred import Calculator, descriptors
 
