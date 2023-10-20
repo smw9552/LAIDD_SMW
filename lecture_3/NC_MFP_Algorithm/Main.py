@@ -27,6 +27,11 @@ Step_4 = SFCP_Assigning()
 Step_5 = Fragment_identifying()
 Step_6 = Fingerprint_representation()
 
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\#NPASS_NPT204_Activity_input.xlsx"
+output_file = "/lecture_4/RDKit_activity_output.xlsx"
+
+
+
 # Read Query Mols data
 Query_FilePath = ('Data/QueryMols_NC_MFP_Algorithm_TestSet.txt')
 #Query_FilePath = 'C:\\Users\\Seomyungwon\\NC-MFP\\Data\\QueryMols_NC_MFP_Algorithm_TestSet.txt'
