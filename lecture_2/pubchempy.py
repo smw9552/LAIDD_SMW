@@ -43,6 +43,8 @@ c_name = c.iupac_name # iupac name
 c_synnonyms = c.synonyms # synonyms
 
 pcp.get_properties('AtomStereoCount', '6623')
+c_tpsa = pcp.get_properties('TPSA', str(cid_single))
+
 
 #사전형태로 데이터 불러오기 #get_properties('Property', 'identifier(CID)')
 p = pcp.get_properties('IsomericSMILES', 'CC', 'smiles', searchtype='superstructure')

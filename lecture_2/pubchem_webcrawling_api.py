@@ -139,14 +139,14 @@ for cid_num in pubchem_cid:
 target_aid = aids[0][0] #위에서 수집했던 aid 중 한개만 추출
 assay_download_url = "https://pubchem.ncbi.nlm.nih.gov/assay/pcget.cgi?query=download&record_type=datatable&actvty=all&response_type=save&aid=" + str(target_aid)
 download_response = requests.get(assay_download_url, verify=False)
-filepath = "C:\\Users\\user\\Desktop\\test.csv"
+filepath = "C:\\Users\\mwseo\\Desktop\\test.csv"
 with open(filepath, "wb") as file:
     file.write(download_response.content)
 
 
 
 #다수의 assay ID로 실험데이터 추출
-file_dir = "C:\\Users\\user\\Desktop\\"
+file_dir = "C:\\Users\\mwseo\\Desktop\\test\\"
 
 for aid_list in aids:
     for aid_num in aid_list:
