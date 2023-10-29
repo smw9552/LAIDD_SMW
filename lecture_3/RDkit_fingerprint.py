@@ -13,15 +13,15 @@ from rdkit.Chem import MACCSkeys
 #FP list: MACCS, RDKit, Morgan/Circular
 
 # 파일경로 설정
-current_directory = os.path.dirname(__file__)
-input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
+# current_directory = os.path.dirname(__file__)
+# input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
 
 # 파일경로 직접 설정
 #input_file = "userpath\\NPASS_NPs.xlsx"
 input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
-output_file1 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
-output_file2 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
-output_file3 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
+output_file_1 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\MACCS_output.xlsx"
+output_file_2 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_FP_output.xlsx"
+output_file_3 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\EFCP6_output.xlsx"
 
 #파일을 dataframe 형태로 불러오기
 df = pd.read_excel(input_file)
@@ -68,6 +68,11 @@ for c in range(0, len(temp_Morgan_binary)):
     Morgan_list.append(column)
 
 
+#fingerprint 결과 포함하기 위한 리스트
+MACCS_FP = []
+RDKit_FP = []
+Morgan_FP = []
+
 for bi in range(0, len(mol_list)):
     print("count:", bi)
     print(smiles_list[bi])
@@ -75,9 +80,13 @@ for bi in range(0, len(mol_list)):
     # 구조 생성문제 확인하기 위한 작업
     type_check = str(mol_list[bi])
 
+
+
+
+
     if (type_check == 'None'):
         # Smile 정보로 mol 생성이 불가능한 경우 descriptor 계산이 안되므로 모두 0으로 처리 (에러방지)
-        # 0 정보를 담을 임시 리스트 작성
+        #         # 0 정보를 담을 임시 리스트 작성
         temp_MACCS_FP = []
         temp_RDKit_FP = []
         temp_Morgan_FP = []

@@ -14,6 +14,10 @@ import os
 current_directory = os.path.dirname(__file__)
 input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
 
+# 파일경로 직접 설정
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
+
 
 #Single_descriptor name (106개)
 rdkit_desc_list = ["BalabanJ", "BertzCT", "Ipc", "HallKierAlpha", "Kappa1", "Kappa2", "Kappa3", "Phi", "Chi0", "Chi1",
@@ -30,10 +34,6 @@ rdkit_desc_list = ["BalabanJ", "BertzCT", "Ipc", "HallKierAlpha", "Kappa1", "Kap
                      "EState_VSA6", "EState_VSA7", "EState_VSA8", "EState_VSA9", "EState_VSA10", "EState_VSA11", "VSA_EState1", "VSA_EState2",
                      "VSA_EState3", "VSA_EState4", "VSA_EState5", "VSA_EState6", "VSA_EState7", "VSA_EState8", "VSA_EState9", "VSA_EState10"]
 
-
-# 파일경로 직접 설정
-input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
-output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_output.xlsx"
 
 
 #파일을 dataframe 형태로 불러오기
