@@ -202,8 +202,7 @@ print("Test spe: ", test_spe)
 print("Test ba: ", test_ba)
 
 
-#결과파일 작성 (필요 시 활용)
-'''
+#결과파일 작성
 train_accuracy.append(train_acc)
 train_AUC.append(train_auc)
 
@@ -224,4 +223,3 @@ final_df = pd.DataFrame({'Random Seed': seed,
                          })
 
 final_df.to_excel(output_file)
-'''
