@@ -131,7 +131,7 @@ def create_model():
 
     return model
 
-# 모델생성 & 컴파일
+# 모델 컴파일
 # loss 함수
 # multi-class: categorical_crossentropy
 # binary-class: binary_crossentropy
