@@ -3,7 +3,6 @@
 # Date: 2023-10-20
 # E-mail: mwseo@krict.re.kr; seomyungwon@gmail.com
 
-
 import pandas as pd
 import os
 import numpy as np
@@ -13,13 +12,13 @@ from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import SMOTE
 
 # 파일경로 설정
-current_directory = os.path.dirname(__file__)
-input_file = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output.xlsx")
-output_file_nor = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_nor.xlsx")
-output_file_std = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_std.xlsx")
-output_file_ds = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_ds.xlsx")
-output_file_us = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_us.xlsx")
-output_file_final = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_final.xlsx")
+# current_directory = os.path.dirname(__file__)
+# input_file = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output.xlsx")
+# output_file_nor = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_nor.xlsx")
+# output_file_std = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_std.xlsx")
+# output_file_ds = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_ds.xlsx")
+# output_file_us = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_us.xlsx")
+# output_file_final = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_final.xlsx")
 
 # 파일경로 직접 설정
 input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
@@ -137,4 +136,4 @@ df_data_up = pd.DataFrame(data_smote) #dataframe 구성
 data_columns = df.columns[5:len(df.columns)] #df의 column 정보 가져오기 (0~4는 descriptor 정보 아님)
 df_data_up.columns = data_columns #column명 변경
 df_data_up.insert(0, 'label', target_smote) #label column 추가
-df_data_up.to_excel(output_file_us, index=False) #데이터 확인
+df_data_up.to_excel(output_file_final, index=False) #데이터 확인
