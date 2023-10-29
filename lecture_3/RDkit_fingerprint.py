@@ -80,10 +80,6 @@ for bi in range(0, len(mol_list)):
     # 구조 생성문제 확인하기 위한 작업
     type_check = str(mol_list[bi])
 
-
-
-
-
     if (type_check == 'None'):
         # Smile 정보로 mol 생성이 불가능한 경우 descriptor 계산이 안되므로 모두 0으로 처리 (에러방지)
         #         # 0 정보를 담을 임시 리스트 작성
