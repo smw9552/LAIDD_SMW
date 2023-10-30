@@ -110,21 +110,6 @@ def create_model():
     model.add(keras.layers.Dense(350, activation='relu'))
     model.add(keras.layers.Dropout(0.5))
 
-    # optimized
-    # model.add(keras.layers.Dense(350, activation='relu', input_shape=(n_features,)))
-    # model.add(keras.layers.Dropout(0.5))
-    # model.add(keras.layers.Dense(350, activation='relu'))
-    # model.add(keras.layers.Dropout(0.5))
-    # model.add(keras.layers.Dense(350, activation='relu'))
-    # model.add(keras.layers.Dropout(0.5))
-    # model.add(keras.layers.Dense(350, activation='relu'))
-    # model.add(keras.layers.Dropout(0.5))
-    # model.add(keras.layers.Dense(350, activation='relu'))
-    # model.add(keras.layers.Dropout(0.5))
-    # model.add(keras.layers.Dense(350, activation='relu'))
-    # model.add(keras.layers.Dropout(0.5))
-
-
     # 출력층 #
     # activation = softmax (multi class), activtion = sigmoid (binary class)
     model.add(keras.layers.Dense(n_class, activation='sigmoid'))
