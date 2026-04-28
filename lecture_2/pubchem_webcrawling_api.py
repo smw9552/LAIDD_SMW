@@ -17,7 +17,7 @@ input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
 
 # 파일경로 직접 설정
 #input_file = "userpath\\NPASS_NPs.xlsx"
-input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+#input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
 
 
 #파일을 dataframe 형태로 불러오기
@@ -140,14 +140,17 @@ for cid_num in pubchem_cid:
 target_aid = aids[0][0] #위에서 수집했던 aid 중 한개만 추출
 assay_download_url = "https://pubchem.ncbi.nlm.nih.gov/assay/pcget.cgi?query=download&record_type=datatable&actvty=all&response_type=save&aid=" + str(target_aid)
 download_response = requests.get(assay_download_url, verify=False)
-filepath = "C:\\Users\\mwseo\\Desktop\\test.csv"
+
+
+filepath = os.path.join(current_directory, "..", "dataset", "lecture_2_output", "test.csv")
 with open(filepath, "wb") as file:
     file.write(download_response.content)
 
 
 
 #다수의 assay ID로 실험데이터 추출
-file_dir = "C:\\Users\\mwseo\\Desktop\\test\\"
+file_dir = os.path.join(current_directory, "..", "dataset", "lecture_2_output")
+#file_dir = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_2_output"
 
 for aid_list in aids:
     for aid_num in aid_list:
