@@ -18,10 +18,10 @@ from rdkit.Chem import MACCSkeys
 
 # 파일경로 직접 설정
 #input_file = "userpath\\NPASS_NPs.xlsx"
-input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
-output_file_1 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\MACCS_output.xlsx"
-output_file_2 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\RDKit_FP_output.xlsx"
-output_file_3 = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\EFCP6_output.xlsx"
+input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+output_file_1 = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\MACCS_output.xlsx"
+output_file_2 = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\RDKit_FP_output.xlsx"
+output_file_3 = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\EFCP6_output.xlsx"
 
 #파일을 dataframe 형태로 불러오기
 df = pd.read_excel(input_file)
