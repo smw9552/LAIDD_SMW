@@ -13,6 +13,8 @@ import tensorflow.keras as keras
 import tensorflow as tf
 from sklearn.metrics import confusion_matrix
 import random
+import matplotlib.pyplot as plt
+from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import StratifiedShuffleSplit
 
 # 파일경로 설정
@@ -27,8 +29,9 @@ os.environ["PYTHONHASHSEED"] = str(seed)
 tf.random.set_seed(seed)
 
 # 파일경로 직접 설정
-input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
-output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output_DNN.xlsx"
+input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
+output_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_5_output\\NPASS_NPT204_RDKit_activity_output_DNN.xlsx"
+plot_dir = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_5_output\\"
 
 #perforamnce list
 train_accuracy = []
@@ -80,7 +83,7 @@ train_label = train_label_smote
 
 # 하이퍼파라미터
 learning_rate = 0.0001 # 0.001 default: 0.001
-n_epoch = 400 # 300
+n_epoch = 200 # 300
 n_batch = 16  # 16
 n_class = 2
 n_train = train_input.shape[0]  # training 데이터 수
@@ -101,14 +104,14 @@ def create_model():
     model = keras.Sequential()
 
     # 입력층 및 hidden layer
-    model.add(keras.layers.Dense(350, activation='relu', input_shape=(n_features,)))
-    model.add(keras.layers.Dropout(0.5))
-    model.add(keras.layers.Dense(350, activation='relu'))
-    model.add(keras.layers.Dropout(0.5))
-    model.add(keras.layers.Dense(350, activation='relu'))
-    model.add(keras.layers.Dropout(0.5))
-    model.add(keras.layers.Dense(350, activation='relu'))
-    model.add(keras.layers.Dropout(0.5))
+    model.add(keras.layers.Dense(250, activation='relu', input_shape=(n_features,)))
+    model.add(keras.layers.Dropout(0.3))
+    model.add(keras.layers.Dense(250, activation='relu'))
+    model.add(keras.layers.Dropout(0.3))
+    model.add(keras.layers.Dense(250, activation='relu'))
+    model.add(keras.layers.Dropout(0.2))
+    #model.add(keras.layers.Dense(350, activation='relu'))
+    #model.add(keras.layers.Dropout(0.5))
 
     # 출력층 #
     # activation = softmax (multi class), activtion = sigmoid (binary class)
@@ -125,9 +128,24 @@ def create_model():
 model = create_model()
 #model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate), loss='binary_crossentropy', metrics=['accuracy', 'AUC'])
 
-model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate),
-              loss='binary_crossentropy',
-              metrics=['accuracy', 'AUC', 'TruePositives', 'TrueNegatives', 'FalsePositives', 'FalseNegatives'])
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(learning_rate),
+    loss='binary_crossentropy',
+    metrics=[
+        'accuracy',
+        tf.keras.metrics.AUC(name='auc'),
+        tf.keras.metrics.TruePositives(name='tp'),
+        tf.keras.metrics.TrueNegatives(name='tn'),
+        tf.keras.metrics.FalsePositives(name='fp'),
+        tf.keras.metrics.FalseNegatives(name='fn')
+    ]
+)
+
+# early_stop = EarlyStopping(
+#     monitor='val_loss',
+#     patience=50,
+#     restore_best_weights=True
+# )
 
 steps_per_epoch = n_train // n_batch
 validation_steps = int(np.ceil(n_test / n_batch))
@@ -137,11 +155,56 @@ history = model.fit(train_dataset,
                     epochs=n_epoch,
                     steps_per_epoch=steps_per_epoch,
                     validation_data=test_dataset,
-                    validation_steps=validation_steps)
+                    validation_steps=validation_steps
+                    #callbacks=[early_stop]
+                    )
+
+#그래프
+os.makedirs(plot_dir, exist_ok=True)
+
+# Accuracy
+plt.figure()
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.title('Train / Validation Accuracy')
+plt.legend()
+plt.grid(True)
+plt.savefig(os.path.join(plot_dir, "accuracy_curve.png"), dpi=300, bbox_inches='tight')
+plt.show()
+
+# AUC
+plt.figure()
+plt.plot(history.history['auc'], label='Train AUC')
+plt.plot(history.history['val_auc'], label='Validation AUC')
+plt.xlabel('Epoch')
+plt.ylabel('AUC')
+plt.title('Train / Validation AUC')
+plt.legend()
+plt.grid(True)
+plt.savefig(os.path.join(plot_dir, "auc_curve.png"), dpi=300, bbox_inches='tight')
+plt.show()
+
+# Loss
+plt.figure()
+plt.plot(history.history['loss'], label='Train Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.title('Train / Validation Loss')
+plt.legend()
+plt.grid(True)
+plt.savefig(os.path.join(plot_dir, "loss_curve.png"), dpi=300, bbox_inches='tight')
+plt.show()
 
 # 예측모델 최종 80% 내부검증(성능)
-train_acc = history.history['accuracy'][n_epoch - 1]
-train_auc = history.history['auc'][n_epoch - 1]
+print(history.history.keys())  # 확인용
+
+train_acc = history.history['accuracy'][-1]
+train_auc = history.history['auc'][-1]
+
+test_auc = history.history['val_auc'][-1]
 
 # 예측모델 최종 20% 외부검증(성능)
 model.evaluate(test_dataset)
@@ -171,7 +234,7 @@ test_fp = test_cm[0,1]
 test_fn = test_cm[1,0]
 
 test_acc = (test_tp + test_tn) / (test_tp + test_tn + test_fp + test_fn)
-test_auc = history.history['val_auc'][n_epoch - 1]
+#test_auc = history.history['val_auc'][n_epoch - 1]
 test_sen = test_tp / (test_tp + test_fn)
 test_spe = test_tn / (test_tn + test_fp)
 test_ba = (test_sen + test_spe) / 2
