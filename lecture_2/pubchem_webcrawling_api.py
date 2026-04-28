@@ -78,6 +78,7 @@ for cid_num in pubchem_cid:
         print(str("Input CID number: ") + str(cid_num).strip())
         url = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/" + str(cid_num).strip() + "/property/CanonicalSMILES/txt"
 
+        # 필요한 항목을 가져올 수 있음
         ''' 
         MolecularFormula, MolecularWeight, CanonicalSMILES, IsomericSMILES, 
         InChI, InChIKey, IUPACName, XLogP, ExactMass, MonoisotopicMass, TPSA, 
