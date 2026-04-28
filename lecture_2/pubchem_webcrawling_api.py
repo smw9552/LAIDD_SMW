@@ -11,13 +11,13 @@ from bs4 import BeautifulSoup
 import requests
 
 
-# 파일경로 설정
-current_directory = os.path.dirname(__file__)
-input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
+# 파일경로 설정 (자동설정)
+#current_directory = os.path.dirname(__file__)
+#input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
 
 # 파일경로 직접 설정
 #input_file = "userpath\\NPASS_NPs.xlsx"
-#input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
 
 
 #파일을 dataframe 형태로 불러오기
@@ -109,7 +109,7 @@ for cid_num in pubchem_cid:
 
 
 #CID 정보로 PubChem에서 assay 정보 가져오는 방법
-#CID에 해당하는 assay list 불러오기 (CID가 포함된 Assay ID 전부 호출
+#CID에 해당하는 assay list 불러오기 (CID가 포함된 Assay ID 전부 호출)
 
 aids = []
 for cid_num in pubchem_cid:
@@ -142,17 +142,22 @@ assay_download_url = "https://pubchem.ncbi.nlm.nih.gov/assay/pcget.cgi?query=dow
 download_response = requests.get(assay_download_url, verify=False)
 
 
-filepath = os.path.join(current_directory, "..", "dataset", "lecture_2_output", "test.csv")
+#filepath = os.path.join(current_directory, "..", "dataset", "lecture_2_output", "test.csv")
+filepath = r"C:\Users\user\PycharmProjects\LAIDD_SMW\dataset\lecture_2_output\test.csv"
+
 with open(filepath, "wb") as file:
     file.write(download_response.content)
 
 
 
 #다수의 assay ID로 실험데이터 추출
-file_dir = os.path.join(current_directory, "..", "dataset", "lecture_2_output")
-#file_dir = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_2_output"
+#file_dir = os.path.join(current_directory, "..", "dataset", "lecture_2_output")
+file_dir = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_2_output\\"
 
-for aid_list in aids:
+test_aids = aids[1] # 데이터가 너무 많아서 임시로 설정 (전체 수집 시 삭제)
+
+#for aid_list in aids:
+for aid_list in test_aids:
     for aid_num in aid_list:
 
         try:
