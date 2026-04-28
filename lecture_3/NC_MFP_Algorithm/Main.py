@@ -13,9 +13,9 @@ from lecture_3.NC_MFP_Algorithm.Fragment_identifying_step import Fragment_identi
 from lecture_3.NC_MFP_Algorithm.Fingerprint_representation_step import Fingerprint_representation
 
 
-# 파일경로 설정
-current_directory = os.path.dirname(__file__)
-input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
+# 파일경로 설정 (자동설정)
+#current_directory = os.path.dirname(__file__)
+#input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
 
 # Define classes
 Step_1 = Preprocessing()
@@ -28,17 +28,17 @@ Step_6 = Fingerprint_representation()
 # Read Query Mols data
 #Query_FilePath = ('Data/QueryMols_NC_MFP_Algorithm_TestSet.txt')
 #Query_FilePath = 'C:\\Users\\Seomyungwon\\NC-MFP\\Data\\QueryMols_NC_MFP_Algorithm_TestSet.txt'
-Query_FilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+Query_FilePath = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
 
 # Read All Scaffolds data
 #All_Scaffold_FilePath = ('Data/All_Optimized_Scaffold_List.txt')
 #All_Scaffold_FilePath = 'C:\\Users\\Seomyungwon\\NC-MFP\\Data\\All_Optimized_Scaffold_List.txt'
-All_Scaffold_FilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\lecture_3\\NC_MFP_Algorithm\\Data\\All_Optimized_Scaffold_List.txt"
+All_Scaffold_FilePath = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\lecture_3\\NC_MFP_Algorithm\\Data\\All_Optimized_Scaffold_List.txt"
 
 # Write NC-MFP file
 #OutputFilePath = ('FilePath/OutPutFileName.txt')
 #OutputFileName = ('OutputFile name.txt')
-OutputFilePath = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\output\\"
+OutputFilePath = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\"
 OutputFileName = "NC-MFP_output.txt"
 
 

@@ -1,0 +1,6 @@
+Ste3_Lv1	Ter11_Lv2	Ter11_Lv2_SFCP15	Ter11_Lv2_SFCP15_F7	Ter6_Lv1	Ter6_Lv1_SFCP11	Ter6_Lv1_SFCP11_F7	Ter7_Lv1	Ter7_Lv1_SFCP11	Ter7_Lv1_SFCP11_F7	NC-MFP_BitString
+0	0	0	0	0	0	0	0	0	0	QueryMol_1
+1	1	1	1	0	0	0	1	1	1	QueryMol_2
+0	0	0	0	1	1	1	0	0	0	QueryMol_3
+0	0	0	0	0	0	0	0	0	0	QueryMol_4
+0	0	0	0	0	0	0	0	0	0	QueryMol_5
