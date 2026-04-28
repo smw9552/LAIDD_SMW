@@ -29,8 +29,9 @@ df.columns
 #CAS 정보 추출하기
 cas = df['CAS']
 
-
+#########################
 ## PubChem WebCrawling ##
+#########################
 
 #CAS 정보만 있을 때 PubChem에서 CID 정보 가지고 오는 코드
 pubchem_cid = []
@@ -135,8 +136,10 @@ for cid_num in pubchem_cid:
         aids.append("None")
 
 
+#####################################
+# 하나의 assay ID로 실험 데이터 다운로드 #
+#####################################
 
-#하나의 assay ID로 실험 데이터 다운로드
 target_aid = aids[0][0] #위에서 수집했던 aid 중 한개만 추출
 assay_download_url = "https://pubchem.ncbi.nlm.nih.gov/assay/pcget.cgi?query=download&record_type=datatable&actvty=all&response_type=save&aid=" + str(target_aid)
 download_response = requests.get(assay_download_url, verify=False)
@@ -149,15 +152,31 @@ with open(filepath, "wb") as file:
     file.write(download_response.content)
 
 
+#################################
+# 다수의 assay ID로 실험데이터 추출 #
+#################################
 
-#다수의 assay ID로 실험데이터 추출
 #file_dir = os.path.join(current_directory, "..", "dataset", "lecture_2_output")
 file_dir = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_2_output\\"
 
 test_aids = aids[1] # 데이터가 너무 많아서 임시로 설정 (전체 수집 시 삭제)
-
-#for aid_list in aids:
 for aid_list in test_aids:
+    try:
+        assay_download_url = "https://pubchem.ncbi.nlm.nih.gov/assay/pcget.cgi?query=download&record_type=datatable&actvty=all&response_type=save&aid=" + str(
+            aid_list)
+        download_response = requests.get(assay_download_url, verify=False)
+        download_file_info = str(file_dir) + str(aid_list) + str(".csv")
+        with open(download_file_info, "wb") as file:
+            file.write(download_response.content)
+
+    except HTTPError as e:
+        print(e)
+        aids.append("None")
+
+
+# 전체 목록 추출 시 #
+"""
+for aid_list in aids:
     for aid_num in aid_list:
 
         try:
@@ -170,3 +189,4 @@ for aid_list in test_aids:
         except HTTPError as e:
             print(e)
             aids.append("None")
+"""
