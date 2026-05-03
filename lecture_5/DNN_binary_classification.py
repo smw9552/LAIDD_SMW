@@ -29,9 +29,9 @@ os.environ["PYTHONHASHSEED"] = str(seed)
 tf.random.set_seed(seed)
 
 # 파일경로 직접 설정
-input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
-output_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_5_output\\NPASS_NPT204_RDKit_activity_output_DNN.xlsx"
-plot_dir = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_5_output\\"
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
+output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_5_output\\NPASS_NPT204_RDKit_activity_output_DNN.xlsx"
+plot_dir = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_5_output\\"
 
 #perforamnce list
 train_accuracy = []

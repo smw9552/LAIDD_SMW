@@ -21,12 +21,12 @@ from imblearn.over_sampling import SMOTE
 # output_file_final = os.path.join(current_directory, "..", "dataset", "output", "NPASS_NPT204_RDKit_activity_output_final.xlsx")
 
 # 파일경로 직접 설정
-input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
-output_file_nor = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_nor.xlsx"
-output_file_std = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_std.xlsx"
-output_file_ds = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_ds.xlsx"
-output_file_us = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_us.xlsx"
-output_file_final = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_final.xlsx"
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPT204_RDKit_activity_output.xlsx"
+output_file_nor = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_nor.xlsx"
+output_file_std = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_std.xlsx"
+output_file_ds = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_ds.xlsx"
+output_file_us = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_us.xlsx"
+output_file_final = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_4_output\\NPASS_NPT204_RDKit_activity_output_final.xlsx"
 
 #파일을 dataframe 형태로 불러오기
 df = pd.read_excel(input_file)

@@ -15,8 +15,8 @@ import os
 #input_file = os.path.join(current_directory, "..", "dataset", "NPASS_NPs.xlsx")
 
 # 파일경로 직접 설정
-input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
-output_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\RDKit_output.xlsx"
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\RDKit_output.xlsx"
 
 
 #Single_descriptor name (106개)

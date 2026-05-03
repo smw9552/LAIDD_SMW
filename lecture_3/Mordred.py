@@ -17,8 +17,8 @@ from mordred import Calculator, descriptors
 
 # 파일경로 직접 설정
 #input_file = "userpath\\NPASS_NPs.xlsx"
-input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
-output_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\Mordred_output.xlsx"
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+output_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_3_output\\Mordred_output.xlsx"
 
 #파일을 dataframe 형태로 불러오기
 df = pd.read_excel(input_file)

@@ -17,7 +17,7 @@ import requests
 
 # 파일경로 직접 설정
 #input_file = "userpath\\NPASS_NPs.xlsx"
-input_file = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
+input_file = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\NPASS_NPs.xlsx"
 
 
 #파일을 dataframe 형태로 불러오기
@@ -146,7 +146,7 @@ download_response = requests.get(assay_download_url, verify=False)
 
 
 #filepath = os.path.join(current_directory, "..", "dataset", "lecture_2_output", "test.csv")
-filepath = r"C:\Users\user\PycharmProjects\LAIDD_SMW\dataset\lecture_2_output\test.csv"
+filepath = r"C:\Users\mwseo\PycharmProjects\LAIDD_SMW\dataset\lecture_2_output\test.csv"
 
 with open(filepath, "wb") as file:
     file.write(download_response.content)
@@ -157,7 +157,7 @@ with open(filepath, "wb") as file:
 #################################
 
 #file_dir = os.path.join(current_directory, "..", "dataset", "lecture_2_output")
-file_dir = "C:\\Users\\user\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_2_output\\"
+file_dir = "C:\\Users\\mwseo\\PycharmProjects\\LAIDD_SMW\\dataset\\lecture_2_output\\"
 
 test_aids = aids[1] # 데이터가 너무 많아서 임시로 설정 (전체 수집 시 삭제)
 for aid_list in test_aids:
