@@ -88,7 +88,7 @@ print("Current minority/majority ratio:", current_ratio)
 #    중요: train set에만 적용
 # =========================================================
 #smote = SMOTE(random_state=seed, sampling_strategy="auto")
-smote = SMOTE(random_state=seed, sampling_strategy=0.5)
+smote = SMOTE(random_state=seed, sampling_strategy=0.8)
 train_input, train_label = smote.fit_resample(train_input, train_label)
 
 # float 변환
@@ -131,14 +131,14 @@ def create_model():
 
     model.add(keras.layers.Input(shape=(n_features,)))
 
-    model.add(keras.layers.Dense(128, activation="relu"))
-    model.add(keras.layers.Dropout(0.1))
+    model.add(keras.layers.Dense(256, activation="relu"))
+    model.add(keras.layers.Dropout(0.2))
 
-    model.add(keras.layers.Dense(128, activation="relu"))
-    model.add(keras.layers.Dropout(0.1))
+    model.add(keras.layers.Dense(256, activation="relu"))
+    model.add(keras.layers.Dropout(0.2))
 
-    model.add(keras.layers.Dense(128, activation="relu"))
-    model.add(keras.layers.Dropout(0.1))
+    model.add(keras.layers.Dense(256, activation="relu"))
+    model.add(keras.layers.Dropout(0.2))
 
     model.add(keras.layers.Dense(1, activation="sigmoid"))
 
