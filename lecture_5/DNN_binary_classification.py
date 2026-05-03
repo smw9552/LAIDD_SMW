@@ -95,8 +95,18 @@ train_label = keras.utils.to_categorical(train_label, n_class)  # label encoding
 test_label = keras.utils.to_categorical(test_label, n_class)  # label encoding of test data
 
 # Dataset 구성(desc, label을 묶어서 제공)
-train_dataset = tf.data.Dataset.from_tensor_slices((train_input, train_label)).shuffle(100000).batch(n_batch, drop_remainder=True).repeat()
-test_dataset = tf.data.Dataset.from_tensor_slices((test_input, test_label)).batch(n_batch)
+train_dataset = (
+    tf.data.Dataset.from_tensor_slices((train_input, train_label))
+    .shuffle(buffer_size=len(train_input), seed=seed)
+    .batch(n_batch)
+    .prefetch(tf.data.AUTOTUNE)
+)
+
+test_dataset = (
+    tf.data.Dataset.from_tensor_slices((test_input, test_label))
+    .batch(n_batch)
+    .prefetch(tf.data.AUTOTUNE)
+)
 
 
 # 모델 생성
@@ -147,17 +157,19 @@ model.compile(
 #     restore_best_weights=True
 # )
 
-steps_per_epoch = n_train // n_batch
-validation_steps = int(np.ceil(n_test / n_batch))
+print("train batches:", tf.data.experimental.cardinality(train_dataset).numpy())
+print("test batches:", tf.data.experimental.cardinality(test_dataset).numpy())
+print("n_train:", len(train_input))
+print("n_test:", len(test_input))
+print("batch:", n_batch)
+
 
 # 학습
-history = model.fit(train_dataset,
-                    epochs=n_epoch,
-                    steps_per_epoch=steps_per_epoch,
-                    validation_data=test_dataset,
-                    validation_steps=validation_steps
-                    #callbacks=[early_stop]
-                    )
+history = model.fit(
+    train_dataset,
+    epochs=n_epoch,
+    validation_data=test_dataset
+)
 
 #그래프
 os.makedirs(plot_dir, exist_ok=True)
