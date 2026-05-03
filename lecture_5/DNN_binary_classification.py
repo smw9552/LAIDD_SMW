@@ -199,15 +199,20 @@ plt.savefig(os.path.join(plot_dir, "auc_curve.png"), dpi=300, bbox_inches='tight
 plt.show()
 
 # Loss
+# Best epoch 표시 Loss 그래프
+best_epoch = np.argmin(history.history['val_loss']) + 1
+best_val_loss = np.min(history.history['val_loss'])
+
 plt.figure()
 plt.plot(history.history['loss'], label='Train Loss')
 plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.axvline(best_epoch, linestyle='--', label=f'Best epoch: {best_epoch}')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
-plt.title('Train / Validation Loss')
+plt.title('Train / Validation Loss with Best Epoch')
 plt.legend()
 plt.grid(True)
-plt.savefig(os.path.join(plot_dir, "loss_curve.png"), dpi=300, bbox_inches='tight')
+plt.savefig(os.path.join(plot_dir, "loss_curve_with_best_epoch.png"), dpi=300, bbox_inches='tight')
 plt.show()
 
 # 예측모델 최종 80% 내부검증(성능)
